@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Jumbotron, Container, Row, Col, Form, Button} from 'react-bootstrap';
 
 
 function App() {
+  const [textNumbers, setTextNumbers] = useState('0');
   return (
     <Jumbotron style={{
       background: 'transparent !important',
@@ -20,7 +21,8 @@ function App() {
             <Form.Control 
               type="text" 
               name="textNumbers"
-              class="text-right"
+              className="text-right"
+              value={textNumbers}
               readOnly="readoly"
             />
           </Col>
