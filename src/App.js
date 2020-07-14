@@ -4,6 +4,14 @@ import {Jumbotron, Container, Row, Col, Form, Button} from 'react-bootstrap';
 
 function App() {
   const [textNumbers, setTextNumbers] = useState('0');
+
+  function addNumber(number){
+    setTextNumbers(textNumbers + number);
+  }
+
+  function defineOperation(op){
+    setTextNumbers(op);
+  }
   return (
     <Jumbotron style={{
       background: 'transparent !important',
@@ -29,58 +37,58 @@ function App() {
         </Row>
         <Row>
           <Col>
-            <Button variant="light">7</Button>
+            <Button variant="light" onClick={()=> addNumber('7')}>7</Button>
           </Col>
           <Col>
-            <Button variant="light">8</Button>
+            <Button variant="light" onClick={()=> addNumber('8')}>8</Button>
           </Col>
           <Col>
-            <Button variant="light">9</Button>
+            <Button variant="light" onClick={()=> addNumber('9')}>9</Button>
           </Col>
           <Col>
-            <Button variant="warning">/</Button>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Button variant="light">6</Button>
-          </Col>
-          <Col>
-            <Button variant="light">5</Button>
-          </Col>
-          <Col>
-            <Button variant="light">4</Button>
-          </Col>
-          <Col>
-            <Button variant="warning">*</Button>
+            <Button variant="warning" onClick={()=> defineOperation('/')}>/</Button>
           </Col>
         </Row>
         <Row>
           <Col>
-            <Button variant="light">3</Button>
+            <Button variant="light" onClick={()=> addNumber('6')}>6</Button>
           </Col>
           <Col>
-            <Button variant="light">2</Button>
+            <Button variant="light" onClick={()=> addNumber('5')}>5</Button>
           </Col>
           <Col>
-            <Button variant="light">1</Button>
+            <Button variant="light" onClick={()=> addNumber('4')}>4</Button>
           </Col>
           <Col>
-            <Button variant="warning">-</Button>
+            <Button variant="warning" onClick={()=> defineOperation('*')}>*</Button>
           </Col>
         </Row>
         <Row>
           <Col>
-            <Button variant="light">0</Button>
+            <Button variant="light" onClick={()=> addNumber('3')}>3</Button>
           </Col>
           <Col>
-            <Button variant="light">.</Button>
+            <Button variant="light" onClick={()=> addNumber('2')}>2</Button>
           </Col>
           <Col>
-            <Button variant="success">=</Button>
+            <Button variant="light" onClick={()=> addNumber('1')}>1</Button>
           </Col>
           <Col>
-            <Button variant="warning">+</Button>
+            <Button variant="warning" onClick={()=> defineOperation('-')}>-</Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Button variant="light" onClick={()=> addNumber('0')}>0</Button>
+          </Col>
+          <Col>
+            <Button variant="light" onClick={()=> defineOperation('.')}>.</Button>
+          </Col>
+          <Col>
+            <Button variant="success" onClick={()=> defineOperation('=')}>=</Button>
+          </Col>
+          <Col>
+            <Button variant="warning" onClick={()=> defineOperation('+')}>+</Button>
           </Col>
         </Row>
       </Container>
