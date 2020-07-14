@@ -1,12 +1,25 @@
 import React, {useState} from 'react';
 import {Jumbotron, Container, Row, Col, Form, Button} from 'react-bootstrap';
-
+import CalcService from './CalcService';
 
 function App() {
+  const [Calculate, ConcatNumber, SOMA, SUBTRACAO, DIVISAO, MULTIPLICACAO] = CalcService();
   const [textNumbers, setTextNumbers] = useState('0');
+  const [number1, setNumber1] = useState(0);
+  const [number2, setNumber2] = useState(null);
+  const [operation, setOperation] = useState(null);
 
   function addNumber(number){
-    setTextNumbers(textNumbers + number);
+    let result;
+
+    if(operation === null){
+      result = ConcatNumber(number1, number2);
+      setNumber1(result);
+    }else{
+      result = ConcatNumber(number1, number2);
+      setNumber2(result);
+    }
+    setTextNumbers(result)
   }
 
   function defineOperation(op){
@@ -26,8 +39,8 @@ function App() {
             <Button variant="danger">C</Button>
           </Col>
           <Col xs="9">
-            <Form.Control 
-              type="text" 
+            <Form.Control
+              type="text"
               name="textNumbers"
               className="text-right"
               value={textNumbers}

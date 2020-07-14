@@ -17,6 +17,9 @@ function CalcService() {
       case DIVISAO : result = number1 / number2;
       break;
 
+      case MULTIPLICACAO : result = number1 * number2;
+      break;
+
       default: result = 0;
     }
     return result;
@@ -35,7 +38,7 @@ function CalcService() {
 
     return atualNumber + concatenedNumber;
   }
-  return [Calculate, ConcatNumber, SOMA, SUBTRACAO, DIVISAO];
+  return [Calculate, ConcatNumber, SOMA, SUBTRACAO, DIVISAO, MULTIPLICACAO];
 }
 
 export default CalcService;
