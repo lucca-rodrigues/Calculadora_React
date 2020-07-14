@@ -1,7 +1,12 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import CalcService from './CalcService.js/index.js';
+import CalcService from './CalcService';
 
-describle('test Calc Service', () => {
+describe('test Calc Service', () => {
     const [Calculate] = CalcService();
+
+    it('Garante que 1 + 4 seja 5', ()=>{
+        let soma = Calculate(1, 4, '+');
+        expect(soma).toEqual(5);
+    })
 });
