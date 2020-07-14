@@ -21,7 +21,21 @@ function CalcService() {
     }
     return result;
   }
-  return [Calculate, SOMA, SUBTRACAO, DIVISAO];
+
+  function ConcatNumber(atualNumber, concatenedNumber){
+    if(atualNumber === '0' || atualNumber === null){
+      atualNumber = '';
+    }
+    if(concatenedNumber === '.' && atualNumber === ''){
+      return '0.';
+    }
+    if(concatenedNumber === '.' && atualNumber.indexOf('.') > -1) {
+      return atualNumber;
+    }
+
+    return atualNumber + concatenedNumber;
+  }
+  return [Calculate, ConcatNumber, SOMA, SUBTRACAO, DIVISAO];
 }
 
 export default CalcService;
