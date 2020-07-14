@@ -18,4 +18,8 @@ describe('test Calc Service', () => {
         let divisao = Calculate(1, 4, DIVISAO);
         expect(divisao).toEqual(0.25);
     });
+    it('Retorna 0', ()=>{
+      let operacaoInvalida = Calculate(1, 4, '%');
+      expect(operacaoInvalida).toEqual(0);
+    })
 });

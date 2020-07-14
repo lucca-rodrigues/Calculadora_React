@@ -2,6 +2,8 @@ function CalcService() {
   const SOMA = '+';
   const SUBTRACAO = '-';
   const DIVISAO = '/';
+  const MULTIPLICACAO = '*';
+
   function Calculate(number1, number2, operation) {
     let result;
 
@@ -14,6 +16,8 @@ function CalcService() {
 
       case DIVISAO : result = number1 / number2;
       break;
+
+      default: result = 0;
     }
     return result;
   }
