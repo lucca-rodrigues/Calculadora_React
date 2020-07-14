@@ -3,10 +3,19 @@ import ReactDom from 'react-dom';
 import CalcService from './CalcService';
 
 describe('test Calc Service', () => {
-    const [Calculate] = CalcService();
+    const [Calculate, SOMA, SUBTRACAO, DIVISAO] = CalcService();
 
     it('Garante que 1 + 4 seja 5', ()=>{
-        let soma = Calculate(1, 4, '+');
+        let soma = Calculate(1, 4, SOMA);
         expect(soma).toEqual(5);
-    })
+    });
+
+    it('Garante que 1 - 4 seja -3', ()=>{
+        let subtracao = Calculate(1, 4, SUBTRACAO);
+        expect(subtracao).toEqual(-3);
+    });
+    it('Garante que 1 / 4 seja 0.25', ()=>{
+        let divisao = Calculate(1, 4, DIVISAO);
+        expect(divisao).toEqual(0.25);
+    });
 });
