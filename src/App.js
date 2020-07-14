@@ -1,25 +1,89 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Jumbotron, Container, Row, Col, Form, Button} from 'react-bootstrap';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Jumbotron style={{
+      background: 'transparent !important',
+      backgroundColor: '#007bff',
+      padding: '5px',
+      margin: '5px',
+      width: '400px'
+    }}>
+      <Container>
+        <Row>
+          <Col xs="3">
+            <Button variant="danger">C</Button>
+          </Col>
+          <Col xs="9">
+            <Form.Control 
+              type="text" 
+              name="textNumbers"
+              class="text-right"
+              readOnly="readoly"
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Button variant="light">7</Button>
+          </Col>
+          <Col>
+            <Button variant="light">8</Button>
+          </Col>
+          <Col>
+            <Button variant="light">9</Button>
+          </Col>
+          <Col>
+            <Button variant="warning">/</Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Button variant="light">6</Button>
+          </Col>
+          <Col>
+            <Button variant="light">5</Button>
+          </Col>
+          <Col>
+            <Button variant="light">4</Button>
+          </Col>
+          <Col>
+            <Button variant="warning">*</Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Button variant="light">3</Button>
+          </Col>
+          <Col>
+            <Button variant="light">2</Button>
+          </Col>
+          <Col>
+            <Button variant="light">1</Button>
+          </Col>
+          <Col>
+            <Button variant="warning">-</Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Button variant="light">0</Button>
+          </Col>
+          <Col>
+            <Button variant="light">.</Button>
+          </Col>
+          <Col>
+            <Button variant="success">=</Button>
+          </Col>
+          <Col>
+            <Button variant="warning">+</Button>
+          </Col>
+        </Row>
+      </Container>
+
+    </Jumbotron>
   );
 }
 
