@@ -5,7 +5,7 @@ import CalcService from './CalcService';
 function App() {
   const [Calculate, ConcatNumber, SOMA, SUBTRACAO, DIVISAO, MULTIPLICACAO] = CalcService();
   const [textNumbers, setTextNumbers] = useState('0');
-  const [number1, setNumber1] = useState(0);
+  const [number1, setNumber1] = useState('0');
   const [number2, setNumber2] = useState(null);
   const [operation, setOperation] = useState(null);
 
@@ -13,17 +13,42 @@ function App() {
     let result;
 
     if(operation === null){
-      result = ConcatNumber(number1, number2);
+      result = ConcatNumber(number1, number);
       setNumber1(result);
     }else{
-      result = ConcatNumber(number1, number2);
+      result = ConcatNumber(number2, number);
       setNumber2(result);
     }
     setTextNumbers(result)
   }
 
   function defineOperation(op){
-    setTextNumbers(op);
+    if(operation === null){
+      setOperation(op);
+      return;
+    }
+    if(number2 !== null){
+      const result = Calculate(parseFloat(number1), parseFloat(number2), operation);
+      setOperation(op);
+      setNumber1(result.toString())
+      setNumber2(null);
+      setTextNumbers(result.toString());
+    }
+  }
+
+  function CalculateNumbers(){
+    if (number2 === null){
+      return;
+    }
+    const result = Calculate(parseFloat(number1), parseFloat(number2), operation);
+    setTextNumbers(result);
+  }
+
+  function Clear(){
+    setTextNumbers('0');
+    setNumber1('0');
+    setNumber2(null);
+    setOperation(null);
   }
   return (
     <Jumbotron style={{
@@ -36,7 +61,7 @@ function App() {
       <Container>
         <Row>
           <Col xs="3">
-            <Button variant="danger">C</Button>
+            <Button variant="danger" onClick={Clear}>C</Button>
           </Col>
           <Col xs="9">
             <Form.Control
@@ -95,10 +120,10 @@ function App() {
             <Button variant="light" onClick={()=> addNumber('0')}>0</Button>
           </Col>
           <Col>
-            <Button variant="light" onClick={()=> defineOperation('.')}>.</Button>
+            <Button variant="light" onClick={()=> addNumber('.')}>.</Button>
           </Col>
           <Col>
-            <Button variant="success" onClick={()=> defineOperation('=')}>=</Button>
+            <Button variant="success" onClick={CalculateNumbers}>=</Button>
           </Col>
           <Col>
             <Button variant="warning" onClick={()=> defineOperation('+')}>+</Button>
