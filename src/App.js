@@ -69,6 +69,7 @@ function App() {
               name="textNumbers"
               className="text-right"
               value={textNumbers}
+              data-testid="textNumbers"
               readOnly="readoly"
             />
           </Col>
@@ -84,7 +85,7 @@ function App() {
             <Button variant="light" onClick={()=> addNumber('9')}>9</Button>
           </Col>
           <Col>
-            <Button variant="warning" onClick={()=> defineOperation('/')}>/</Button>
+            <Button variant="warning" onClick={()=> defineOperation(DIVISAO)}>/</Button>
           </Col>
         </Row>
         <Row>
@@ -98,7 +99,7 @@ function App() {
             <Button variant="light" onClick={()=> addNumber('4')}>4</Button>
           </Col>
           <Col>
-            <Button variant="warning" onClick={()=> defineOperation('*')}>*</Button>
+            <Button variant="warning" onClick={()=> defineOperation(MULTIPLICACAO)}>*</Button>
           </Col>
         </Row>
         <Row>
@@ -112,7 +113,7 @@ function App() {
             <Button variant="light" onClick={()=> addNumber('1')}>1</Button>
           </Col>
           <Col>
-            <Button variant="warning" onClick={()=> defineOperation('-')}>-</Button>
+            <Button variant="warning" onClick={()=> defineOperation(SUBTRACAO)}>-</Button>
           </Col>
         </Row>
         <Row>
@@ -126,7 +127,7 @@ function App() {
             <Button variant="success" onClick={CalculateNumbers}>=</Button>
           </Col>
           <Col>
-            <Button variant="warning" onClick={()=> defineOperation('+')}>+</Button>
+            <Button variant="warning" onClick={()=> defineOperation(SOMA)}>+</Button>
           </Col>
         </Row>
       </Container>
